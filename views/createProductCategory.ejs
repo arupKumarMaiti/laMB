@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%= title %></title>
+        <link rel='stylesheet' href='../public/stylesheets/style.css'/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+        <script src="/bower_components/angular/angular.min.js"></script>
+        <script src="../public/javascripts/angular.js/angularModule.js"></script>
+        <script src="../public/javascripts/angular.js/angularService.js"></script>
+        <script src="../public/javascripts/angular.js/angularController.js"></script>
+    </head>
+    <body>
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title"><%= title %></h3>
+            </div>
+            <div class="panel-body">
+                <div class="container" ng-app="productCategoryModule"
+                     ng-controller="productCategoryController">
+                    <form class="navbar-form navbar-left" role="search" method="POST" name="productCategoryForm">
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="productCategory">Product Category</label>
+                                <input type="text" class="form-control" name="productCategory" id="productCategory"
+                                       placeholder="Product Category...??" ng-model="productCategory.categoryName"
+                                       style="width: 100%" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="productDetails">Product Category Details</label>
+                                <textarea class="form-control" name="productDetails" id="productDetails"
+                                          placeholder="Product Category Details...??"
+                                          ng-model="productCategory.categoryDetails"
+                                          style="width: 100%" rows="5" cols="30" required></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <button type="button" class="btn btn-primary"
+                                        ng-click="createProductCategory(productCategory)">Create Product Category
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

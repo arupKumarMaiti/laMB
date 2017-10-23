@@ -12,11 +12,30 @@ routesConfig.prototype.init = function () {
 
 routesConfig.prototype.addRoutes = function () {
   var routes = this;
+
   routes.routesTable.push({
     requestType: 'get',
     requestUrl: '/',
     callbackFunction: function (req, res) {
-      res.render('index', {title: 'Express'});
+      res.render('index', {title: 'index'});
+    }
+  });
+
+  routes.routesTable.push({
+    requestType: 'get',
+    requestUrl: '/createProductCategory',
+    callbackFunction: function (req, res) {
+      res.render('createProductCategory', {title: 'createProductCategory'});
+    }
+  });
+
+  routes.routesTable.push({
+    requestType: 'post',
+    requestUrl: '/createProductCategory',
+    callbackFunction: function (req, res) {
+      dao.createProductCategory(product, function (status) {
+        response.json("");
+      });
     }
   });
 };
